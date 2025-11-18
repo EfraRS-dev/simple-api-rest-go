@@ -3,7 +3,7 @@
 @contentType = application/json
 
 ### Health Check
-GET {{baseUrl}}/health
+GET {{baseUrl}}/api/health
 
 ### Get All Orders
 GET {{baseUrl}}/api/orders
