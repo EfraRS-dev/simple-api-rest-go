@@ -98,10 +98,11 @@ func createOrder(c *gin.Context) {
 
 	// Calcular total_amount e items_count
 	var totalAmount float64
-	itemsCount := len(orderReq.Items)
+	var itemsCount int = 0
 
 	for _, item := range orderReq.Items {
 		totalAmount += item.Price * float64(item.Quantity)
+		itemsCount += item.Quantity
 	}
 
 	// Iniciar transacción
