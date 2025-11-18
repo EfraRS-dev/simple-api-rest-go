@@ -1,0 +1,77 @@
+### Variables
+@baseUrl = http://localhost:5001
+@contentType = application/json
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get All Orders
+GET {{baseUrl}}/api/orders
+
+### Create New Order
+POST {{baseUrl}}/api/orders
+Content-Type: {{contentType}}
+
+{
+  "customer_id": "12345ER",
+  "items": [
+    {
+      "product_id": "P123",
+      "quantity": 10,
+      "price": 50.00
+    },
+    {
+      "product_id": "P456",
+      "quantity": 3,
+      "price": 100.00
+    },
+    {
+      "product_id": "P789",
+      "quantity": 8,
+      "price": 25.00
+    }
+  ]
+}
+
+### Create Order with Multiple Items
+POST {{baseUrl}}/api/orders
+Content-Type: {{contentType}}
+
+{
+  "customer_id": "C456",
+  "items": [
+    {
+      "product_id": "P003",
+      "quantity": 3,
+      "price": 25.50
+    },
+    {
+      "product_id": "P004",
+      "quantity": 1,
+      "price": 150.00
+    },
+    {
+      "product_id": "P005",
+      "quantity": 5,
+      "price": 10.00
+    }
+  ]
+}
+
+### Create Simple Order
+POST {{baseUrl}}/api/orders
+Content-Type: {{contentType}}
+
+{
+  "customer_id": "C789",
+  "items": [
+    {
+      "product_id": "P006",
+      "quantity": 1,
+      "price": 299.99
+    }
+  ]
+}
+
+### Delete Order (replace :id with actual order id)
+DELETE {{baseUrl}}/api/orders/1
